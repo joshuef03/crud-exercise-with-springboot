@@ -32,9 +32,9 @@ public class VehiclesController {
     @PutMapping("/{id}")
     public Vehicles alterVehicles(@RequestBody Vehicles newVehicles, @PathVariable Long id){
         return vehiclesRepository.findById(id).map(vehicles -> {
-           vehicles.setDescription(newVehicles.getDescription());
-           vehicles.setRegistration(newVehicles.getRegistration());
-           vehicles.setBrand(newVehicles.getBrand());
+           vehicles.setDescriptions(newVehicles.getDescriptions());
+           vehicles.setRegistrations(newVehicles.getRegistrations());
+           vehicles.setBrands(newVehicles.getBrands());
            return vehiclesRepository.save(vehicles);
         }).orElseThrow();
     }
